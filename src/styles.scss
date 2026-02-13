@@ -1,7 +1,50 @@
-// Variables de colores
-$color-principal: black;
-$color-texto: white;
-$color-hover: #f71e1e;
+// Variables de colores — ahora como CSS custom properties
+// $color-principal y $color-texto ya no se usan, se reemplazan por var()
+
+:root,
+[data-theme='dark'] {
+  --bg-primary: #000000;
+  --bg-secondary: rgba(0, 0, 0, 0.441);
+  --text-primary: #ffffff;
+  --text-secondary: rgb(225, 225, 225);
+  --accent: #f71e1e;
+  --input-bg: #222;
+  --input-border: #444;
+  --border-subtle: #222;
+  --hover-bg: rgb(60, 58, 58);
+  --separator-color: #ffffff;
+  --footer-text: #888;
+  --btn-bg: #ffffff;
+  --btn-text: #000000;
+  --nav-bg: #000000;
+  --icon-color: #ffffff;
+}
+
+[data-theme='light'] {
+  --bg-primary: #f5f5f5;
+  --bg-secondary: rgba(230, 230, 230, 0.95);
+  --text-primary: #1a1a1a;
+  --text-secondary: #333333;
+  --accent: #d41414;
+  --input-bg: #ffffff;
+  --input-border: #cccccc;
+  --border-subtle: #e0e0e0;
+  --hover-bg: #e0e0e0;
+  --separator-color: #333333;
+  --footer-text: #666666;
+  --btn-bg: #1a1a1a;
+  --btn-text: #ffffff;
+  --nav-bg: #f0f0f0;
+  --icon-color: #1a1a1a;
+}
+
+* {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
 $transicion-lenta: 0.8s cubic-bezier(0.4, 0, 0.22, 1);
 
 html {
@@ -9,8 +52,6 @@ html {
 }
 
 body {
-
-
   background-attachment: fixed;
   background-size: cover;
   margin: 0;
@@ -20,8 +61,8 @@ body {
 // Navegador con Nesting
 #navegador {
   width: 100%;
-  background-color: $color-principal;
-  color: $color-texto;
+  background-color: var(--nav-bg);
+  color: var(--text-primary);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,6 +78,7 @@ body {
     padding: 0;
     width: 100%;
     justify-content: center;
+    align-items: center;
 
     li {
       margin: 0 15px;
@@ -44,7 +86,7 @@ body {
 
       a {
         text-decoration: none;
-        color: rgb(225, 225, 225);
+        color: var(--text-secondary);
         font-size: 18px;
         font-weight: bold;
         transition: 0.3s ease;
@@ -52,12 +94,12 @@ body {
       }
 
       &:hover {
-        background-color: rgb(60, 58, 58);
+        background-color: var(--hover-bg);
         border-radius: 5px;
         transform: scale(1.1);
 
         a {
-          color: $color-hover;
+          color: var(--accent);
           text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
       }
@@ -65,12 +107,43 @@ body {
   }
 }
 
+// Botones de toggle en la nav
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  padding-right: 16px;
+
+  button {
+    background: none;
+    border: 1px solid var(--text-secondary);
+    color: var(--text-primary);
+    font-size: 16px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+
+    &:hover {
+      background-color: var(--hover-bg);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: scale(1.05);
+    }
+  }
+}
+
 // Sección Inicio
 #inicio {
-  background-color: rgba(0, 0, 0, 0.441);
+  background-color: var(--bg-secondary);
   text-align: center;
-  color: $color-texto;
-  padding: 150px 20px; // Aumentado por el nav fixed
+  color: var(--text-primary);
+  padding: 150px 20px;
 
   h1 {
     font-size: 50px;
@@ -78,7 +151,7 @@ body {
 
   h2 {
     font-size: 30px;
-    border: 2px solid rgb(136, 136, 136);
+    border: 2px solid var(--text-secondary);
     width: fit-content;
     padding: 10px 20px;
     border-radius: 10px;
@@ -86,22 +159,24 @@ body {
     margin: 20px auto;
 
     &:hover {
-      color: $color-principal;
-      background-color: $color-texto;
+      color: var(--btn-text);
+      background-color: var(--btn-bg);
       transform: scale(1.1);
-      border-color: $color-texto;
+      border-color: var(--btn-bg);
     }
   }
 }
 
 // Sección Sobre Mí
 #sobreMi {
-  background-color: $color-principal;
+  background-color: var(--bg-primary);
   text-align: center;
-  color: $color-texto;
+  color: var(--text-primary);
   padding: 100px 20px;
 
-  h1 { font-size: 50px; }
+  h1 {
+    font-size: 50px;
+  }
 
   img {
     border-radius: 50%;
@@ -111,7 +186,7 @@ body {
     transition: all 0.6s ease;
 
     &:hover {
-      border: 4px solid $color-texto;
+      border: 4px solid var(--text-primary);
       transform: translateY(-15px) scale(1.05);
       box-shadow: 0px 15px 25px rgba(255, 255, 255, 0.2);
     }
@@ -129,17 +204,19 @@ body {
 
 // Lenguajes
 #lenguajestit {
-  background-color: rgba(0, 0, 0, 0.441);
-  color: $color-texto;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
   padding: 80px 20px;
   text-align: center;
   margin: 0;
 
-  i { transition: 0.3s; }
+  i {
+    transition: 0.3s;
+  }
 }
 
 #lenguajes {
-  background-color: $color-principal;
+  background-color: var(--bg-primary);
   display: flex;
   justify-content: center;
   gap: 40px;
@@ -148,22 +225,37 @@ body {
 
   i {
     font-size: 80px;
-    color: $color-texto;
+    color: var(--icon-color);
     transition: all 0.5s ease;
     cursor: pointer;
 
-    &.fa-php:hover { color: #777BB4; transform: scale(1.2); }
-    &.fa-html5:hover { color: #E34F26; transform: scale(1.2); }
-    &.fa-css3:hover { color: #1572B6; transform: scale(1.2); }
-    &.fa-js:hover { color: #F7DF1E; transform: scale(1.2); }
-    &.fa-java:hover { color: #f71e1e; transform: scale(1.2); }
+    &.fa-php:hover {
+      color: #777bb4;
+      transform: scale(1.2);
+    }
+    &.fa-html5:hover {
+      color: #e34f26;
+      transform: scale(1.2);
+    }
+    &.fa-css3:hover {
+      color: #1572b6;
+      transform: scale(1.2);
+    }
+    &.fa-js:hover {
+      color: #f7df1e;
+      transform: scale(1.2);
+    }
+    &.fa-java:hover {
+      color: #f71e1e;
+      transform: scale(1.2);
+    }
   }
 }
 
 // Proyectos y Carrusel
 #proyectos {
-  background-color: $color-principal;
-  color: $color-texto;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   padding: 100px 20px;
   text-align: center;
 
@@ -196,19 +288,19 @@ body {
   }
 }
 
-// Separador (Clase reemplazando al ID #hr)
+// Separador
 .separador-personalizado {
   border: none;
   height: 4px;
   width: 80px;
   margin: 40px auto;
-  background: linear-gradient(90deg, transparent, $color-texto, transparent);
+  background: linear-gradient(90deg, transparent, var(--separator-color), transparent);
 }
 
 // Contacto
 #contacto {
-  background-color: $color-principal;
-  color: $color-texto;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   padding: 100px 20px;
   text-align: center;
 
@@ -216,27 +308,30 @@ body {
     max-width: 500px;
     margin: 0 auto;
 
-    input, textarea {
+    input,
+    textarea {
       width: 100%;
       padding: 12px;
       margin-top: 10px;
       border-radius: 5px;
-      border: 1px solid #444;
-      background: #222;
-      color: white;
+      border: 1px solid var(--input-border);
+      background: var(--input-bg);
+      color: var(--text-primary);
     }
 
     button {
       margin-top: 30px;
       padding: 12px 30px;
-      background-color: $color-texto;
+      background-color: var(--btn-bg);
+      color: var(--btn-text);
       font-weight: bold;
       border: none;
       border-radius: 5px;
       transition: 0.4s;
+      cursor: pointer;
 
       &:hover {
-        background-color: $color-hover;
+        background-color: var(--accent);
         color: white;
         transform: translateY(-5px);
       }
@@ -255,17 +350,29 @@ body {
     font-size: 50px;
     transition: 0.4s;
 
-    &.fa-github { color: white; &:hover { color: #6e5494; } }
-    &.fa-linkedin { color: #0077b6; &:hover { color: #00a0dc; } }
+    &.fa-github {
+      color: var(--icon-color);
+      &:hover {
+        color: #6e5494;
+      }
+    }
+    &.fa-linkedin {
+      color: #0077b6;
+      &:hover {
+        color: #00a0dc;
+      }
+    }
 
-    &:hover { transform: scale(1.2); }
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 }
 
 footer {
-  background-color: $color-principal;
-  color: #888;
+  background-color: var(--bg-primary);
+  color: var(--footer-text);
   text-align: center;
   padding: 20px;
-  border-top: 1px solid #222;
+  border-top: 1px solid var(--border-subtle);
 }

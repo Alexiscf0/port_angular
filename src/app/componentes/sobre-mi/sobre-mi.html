@@ -1,10 +1,10 @@
 <section id="sobreMi" class="container">
   <div class="row">
     <div class="col-12">
-      <h1>¡Sobre mi!</h1>
-      <img [src]="fotoPerfil" alt="Foto de Alexis" height="250" width="250">
+      <h1>{{ i18n.t('sobreMi.titulo') }}</h1>
+      <img src="../../assets/img/Foto_Personal.jpg" alt="Foto de Alexis" height="250" width="250">
       <p>
-        Hola! Soy Alexis, un desarrollador web junior con una curiosidad insaciable por la tecnología...
+        {{ i18n.t('sobreMi.descripcion') }}
       </p>
     </div>
   </div>

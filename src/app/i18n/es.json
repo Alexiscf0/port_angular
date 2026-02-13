@@ -1,0 +1,16 @@
+{
+  "nav.inicio": "Inicio",
+  "nav.sobreMi": "Sobre mi!",
+  "nav.contacto": "Contacto",
+  "nav.proyectos": "Proyectos",
+  "inicio.nombre": "Alexis Castellón",
+  "inicio.rol": "Desarrollador Web",
+  "sobreMi.titulo": "¡Sobre mi!",
+  "sobreMi.descripcion": "Hola! Soy Alexis, un desarrollador web junior con una curiosidad insaciable por la tecnología...",
+  "proyectos.titulo": "Proyectos",
+  "contacto.titulo": "Contacto",
+  "contacto.email": "Tu correo:",
+  "contacto.mensaje": "Mensaje:",
+  "contacto.enviar": "Enviar",
+  "footer.copyright": "Copyright © 2026 - Alexis Castellón"
+}

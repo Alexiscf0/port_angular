@@ -9,6 +9,14 @@
         "link-name": "off"
       }
     ],
-    "meta-viewport": "off"
+    "meta-viewport": "off",
+    "typescript-config/is-valid": "off",
+    "typescript-config/consistent-casing": "off",
+    "axe/text-alternatives": [
+      "default",
+      {
+        "image-alt": "off"
+      }
+    ]
   }
 }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { TranslationService } from '../../servicios/translation.service';
 
 @Component({
   selector: 'app-proyectos',
@@ -7,6 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './proyectos.css',
 })
 export class ProyectosComponent {
+  i18n = inject(TranslationService);
+
   misProyectos = [
     {
       url: 'https://github.com/Alexiscf0/Portfolio_pro',

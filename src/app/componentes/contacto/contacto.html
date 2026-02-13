@@ -1,14 +1,14 @@
 <section id="contacto">
-  <h1>Contacto</h1>
+  <h1>{{ i18n.t('contacto.titulo') }}</h1>
   <div class="formulario-container">
     <form action="https://formspree.io/f/xanrpjkn" method="POST">
-      <label for="email">Tu correo:</label>
+      <label for="email">{{ i18n.t('contacto.email') }}</label>
       <input type="email" id="email" name="email" required>
       <br><br>
-      <label for="mensaje">Mensaje:</label>
+      <label for="mensaje">{{ i18n.t('contacto.mensaje') }}</label>
       <textarea id="mensaje" name="message" required></textarea>
       <br>
-      <button type="submit">Enviar</button>
+      <button type="submit">{{ i18n.t('contacto.enviar') }}</button>
     </form>
   </div>
 

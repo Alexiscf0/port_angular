@@ -1,10 +1,18 @@
 <header>
   <nav id="navegador">
     <ul>
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#sobreMi">Sobre mi!</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#inicio">{{ i18n.t('nav.inicio') }}</a></li>
+      <li><a href="#sobreMi">{{ i18n.t('nav.sobreMi') }}</a></li>
+      <li><a href="#contacto">{{ i18n.t('nav.contacto') }}</a></li>
+      <li><a href="#proyectos">{{ i18n.t('nav.proyectos') }}</a></li>
     </ul>
+    <div class="nav-controls">
+      <button (click)="theme.toggleTheme()" [attr.aria-label]="theme.theme() === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'">
+        {{ theme.theme() === 'dark' ? '☀️' : '🌙' }}
+      </button>
+      <button (click)="i18n.toggleLang()" aria-label="Toggle language">
+        {{ i18n.lang() === 'es' ? 'EN' : 'ES' }}
+      </button>
+    </div>
   </nav>
 </header>
