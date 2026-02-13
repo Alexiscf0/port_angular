@@ -1,1 +1,271 @@
-/* You can add global styles to this file, and also import other style files */
+// Variables de colores
+$color-principal: black;
+$color-texto: white;
+$color-hover: #f71e1e;
+$transicion-lenta: 0.8s cubic-bezier(0.4, 0, 0.22, 1);
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+
+
+  background-attachment: fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
+// Navegador con Nesting
+#navegador {
+  width: 100%;
+  background-color: $color-principal;
+  color: $color-texto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  padding: 10px;
+
+  ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    justify-content: center;
+
+    li {
+      margin: 0 15px;
+      transition: $transicion-lenta;
+
+      a {
+        text-decoration: none;
+        color: rgb(225, 225, 225);
+        font-size: 18px;
+        font-weight: bold;
+        transition: 0.3s ease;
+        padding: 10px 20px;
+      }
+
+      &:hover {
+        background-color: rgb(60, 58, 58);
+        border-radius: 5px;
+        transform: scale(1.1);
+
+        a {
+          color: $color-hover;
+          text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+      }
+    }
+  }
+}
+
+// Sección Inicio
+#inicio {
+  background-color: rgba(0, 0, 0, 0.441);
+  text-align: center;
+  color: $color-texto;
+  padding: 150px 20px; // Aumentado por el nav fixed
+
+  h1 {
+    font-size: 50px;
+  }
+
+  h2 {
+    font-size: 30px;
+    border: 2px solid rgb(136, 136, 136);
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: 0.6s;
+    margin: 20px auto;
+
+    &:hover {
+      color: $color-principal;
+      background-color: $color-texto;
+      transform: scale(1.1);
+      border-color: $color-texto;
+    }
+  }
+}
+
+// Sección Sobre Mí
+#sobreMi {
+  background-color: $color-principal;
+  text-align: center;
+  color: $color-texto;
+  padding: 100px 20px;
+
+  h1 { font-size: 50px; }
+
+  img {
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    transition: all 0.6s ease;
+
+    &:hover {
+      border: 4px solid $color-texto;
+      transform: translateY(-15px) scale(1.05);
+      box-shadow: 0px 15px 25px rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  p {
+    margin-top: 30px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// Lenguajes
+#lenguajestit {
+  background-color: rgba(0, 0, 0, 0.441);
+  color: $color-texto;
+  padding: 80px 20px;
+  text-align: center;
+  margin: 0;
+
+  i { transition: 0.3s; }
+}
+
+#lenguajes {
+  background-color: $color-principal;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding-bottom: 80px;
+  flex-wrap: wrap;
+
+  i {
+    font-size: 80px;
+    color: $color-texto;
+    transition: all 0.5s ease;
+    cursor: pointer;
+
+    &.fa-php:hover { color: #777BB4; transform: scale(1.2); }
+    &.fa-html5:hover { color: #E34F26; transform: scale(1.2); }
+    &.fa-css3:hover { color: #1572B6; transform: scale(1.2); }
+    &.fa-js:hover { color: #F7DF1E; transform: scale(1.2); }
+    &.fa-java:hover { color: #f71e1e; transform: scale(1.2); }
+  }
+}
+
+// Proyectos y Carrusel
+#proyectos {
+  background-color: $color-principal;
+  color: $color-texto;
+  padding: 100px 20px;
+  text-align: center;
+
+  #proyectostit {
+    font-size: clamp(50px, 10vw, 150px);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  }
+}
+
+#carrusel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 40px;
+
+  img {
+    width: 280px;
+    border-radius: 10px;
+    opacity: 0.8;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+      filter: brightness(110%);
+      transform: scale(1.1);
+    }
+  }
+}
+
+// Separador (Clase reemplazando al ID #hr)
+.separador-personalizado {
+  border: none;
+  height: 4px;
+  width: 80px;
+  margin: 40px auto;
+  background: linear-gradient(90deg, transparent, $color-texto, transparent);
+}
+
+// Contacto
+#contacto {
+  background-color: $color-principal;
+  color: $color-texto;
+  padding: 100px 20px;
+  text-align: center;
+
+  form {
+    max-width: 500px;
+    margin: 0 auto;
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #444;
+      background: #222;
+      color: white;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 30px;
+      background-color: $color-texto;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      transition: 0.4s;
+
+      &:hover {
+        background-color: $color-hover;
+        color: white;
+        transform: translateY(-5px);
+      }
+    }
+  }
+}
+
+// Redes Sociales
+#redes {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+
+  i {
+    font-size: 50px;
+    transition: 0.4s;
+
+    &.fa-github { color: white; &:hover { color: #6e5494; } }
+    &.fa-linkedin { color: #0077b6; &:hover { color: #00a0dc; } }
+
+    &:hover { transform: scale(1.2); }
+  }
+}
+
+footer {
+  background-color: $color-principal;
+  color: #888;
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #222;
+}

@@ -1,0 +1,12 @@
+<section id="proyectos">
+  <h1 id="proyectostit">Proyectos</h1>
+  <div class="container">
+    <div id="carrusel">
+      @for (proyecto of misProyectos; track proyecto.src) {
+        <a [href]="proyecto.url" target="_blank">
+          <img [src]="proyecto.src" [alt]="proyecto.alt">
+        </a>
+      }
+    </div>
+  </div>
+</section>
